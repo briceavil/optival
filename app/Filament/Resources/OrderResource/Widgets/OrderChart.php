@@ -8,6 +8,11 @@ use Filament\Widgets\ChartWidget;
 class OrderChart extends ChartWidget
 {
     protected static ?string $heading = 'Ordenes';
+    protected int | string | array $columnSpan = [
+        'sm' => 1,
+        'md' => 1,
+        'xl' => 1,
+    ];
     protected function getData(): array
     {
 
