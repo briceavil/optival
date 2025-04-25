@@ -14,7 +14,7 @@ class OrderStatsOverview extends BaseWidget
 
         return [
             Stat::make('Ordenes totales', Order::all()->count())->icon('heroicon-m-clipboard-document-list'),
-            Stat::make('Ordenes entregadas', Order::where('delivered', false)->count())->icon('heroicon-m-check-badge'),
+            Stat::make('Ordenes entregadas', Order::where('delivered', true)->count())->icon('heroicon-m-check-badge'),
             Stat::make('Ordenes pendientes', Order::where('delivered', false)->count())->icon('heroicon-m-x-circle'),
         ];
     }
