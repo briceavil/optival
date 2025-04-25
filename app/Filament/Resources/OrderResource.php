@@ -47,7 +47,7 @@ class OrderResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Imagen de la Orden')
                     ->image()
-                    ->extraInputAttributes(['capture' => 'environment','accept'=>"image/*"])
+                    ->extraInputAttributes(['capture' => 'environment','multiple'=>true])
                     ->optimize('webp')
                     ->resize(50)
                     ->imageEditor()
