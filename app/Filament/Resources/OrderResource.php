@@ -20,8 +20,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class OrderResource extends Resource
 {
+    protected static ?string $title = 'orden';
     protected static ?string $model = Order::class;
-
+    protected static ?string $navigationLabel = 'Ordenes';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -66,12 +67,12 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('id_order')
                     ->label('Nº de orden')
                     ->alignCenter()
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('id_number')
                     ->label('Nº de Cédula')
                     ->searchable()
-                    ->alignCenter()
-                    ->sortable(),
+                    ->alignCenter(),
                 Tables\Columns\IconColumn::make('delivered')
                     ->label('¿Fué Entregado?')
                     ->boolean()
@@ -106,7 +107,8 @@ class OrderResource extends Resource
 
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([]),
+                Tables\Actions\BulkActionGroup::make([
+                ]),
             ]);
     }
 
